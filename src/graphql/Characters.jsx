@@ -14,7 +14,8 @@ query GetCharacters{
         height
         filmConnection{
           films{
-            title,
+            id
+            title
             director
             planetConnection{
               planets{

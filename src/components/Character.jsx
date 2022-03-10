@@ -1,20 +1,27 @@
-import React, {useState} from "react";
-import { useQuery } from "@apollo/client";
-import { GET_CHARACTER } from "../graphql/Characters";
+import React, { useState } from "react";
 import "antd/dist/antd.css";
-import { Button, Space, Card, Drawer } from "antd";
+import { Drawer } from "antd";
+import { Space, Card, Button } from "antd";
 import Details from "./Details";
 
-
-const Character = ({characterId,name,birthYear,eyeColor,gender,hairColor,height,filmConnection}) => {
+const Character = ({
+  characterId,
+  name,
+  birthYear,
+  eyeColor,
+  gender,
+  hairColor,
+  height,
+  filmConnection,
+}) => {
   const [visible, setVisible] = useState(false);
 
-  const getDrawer = () =>{
+  const getDrawer = () => {
     setVisible(true);
-  }
+  };
   const onClose = () => {
-      setVisible(false);
-  }
+    setVisible(false);
+  };
   return (
     <>
       <Space>
@@ -27,21 +34,22 @@ const Character = ({characterId,name,birthYear,eyeColor,gender,hairColor,height,
       <Drawer
         title="Details about Character"
         align="center"
-        placement= "right"
+        placement="right"
         width={1000}
         onClose={onClose}
         visible={visible}
       >
-          <Details 
-            characterId={characterId}
-            name={name}
-            birthYear={birthYear}
-            eyeColor={eyeColor}
-            gender={gender}
-            hairColor={hairColor}
-            height={height}
-            filmConnection={filmConnection} 
-          />
+        <Details
+          key={characterId}
+          characterId={characterId}
+          name={name}
+          birthYear={birthYear}
+          eyeColor={eyeColor}
+          gender={gender}
+          hairColor={hairColor}
+          height={height}
+          filmConnection={filmConnection}
+        />
       </Drawer>
     </>
   );
