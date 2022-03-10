@@ -10,7 +10,8 @@ import {
 
 //Creation Apollo Client
 const client = new ApolloClient({
-  uri: 'https://swapi.loquenecesito.co/graphql/',
+  // uri: 'https://swapi.loquenecesito.co/graphql/',
+  uri: 'https://swapi-graphql.netlify.app/.netlify/functions/index',
   cache: new InMemoryCache()
 });
 ReactDOM.render(
